@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Smart Easy Life Wins - Best Amazon deals, trending products & exclusive discounts. Save big on top-rated products!"/>
+<meta name="keywords" content="amazon deals, best products, discounts, offers, smart shopping"/>
+<meta property="og:title" content="Smart Easy Life Wins – Best Amazon Deals"/>
+<meta property="og:description" content="Discover the best Amazon deals, trending gadgets & viral products at unbeatable prices!"/>
+<title>Smart Easy Life Wins – Best Amazon Deals & Offers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+/* ============================
+   CSS CUSTOM PROPERTIES
+   ============================ */
+:root {
+  --brand-orange: #FF5722;
+  --brand-orange-light: #FF7043;
+  --brand-orange-dark: #E64A19;
+  --brand-gold: #FFB300;
+  --brand-gold-light: #FFD54F;
+  --accent-teal: #00BCD4;
+  --accent-green: #43A047;
+  --bg-dark: #0A0A0F;
+  --bg-card: #13131A;
+  --bg-card-hover: #1A1A24;
+  --bg-section: #0F0F18;
+  --border-subtle: rgba(255,255,255,0.07);
+  --border-glow: rgba(255,87,34,0.3);
+  --text-primary: #F5F5F5;
+  --text-secondary: #A0A0B0;
+  --text-muted: #606070;
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 40px rgba(255,87,34,0.15);
+  --radius-card: 16px;
+  --radius-btn: 10px;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ============================
+   RESET & BASE
+   ============================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; font-family: var(--font-body); border: none; }
+ul { list-style: none; }
+
+/* ============================
+   SCROLLBAR
+   ============================ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--brand-orange); border-radius: 3px; }
+
+/* ============================
+   LOADER
+   ============================ */
+#page-loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg-dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 20px;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+#page-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.loader-spinner {
+  width: 48px; height: 48px;
+  border: 3px solid var(--border-subtle);
+  border-top-color: var(--brand-orange);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+.loader-text { font-size: 0.85rem; color: var(--text-muted); letter-spacing: 0.05em; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ============================
+   TOP ANNOUNCEMENT BAR
+   ============================ */
+.announce-bar {
+  background: linear-gradient(90deg, var(--brand-orange-dark), var(--brand-orange), var(--brand-orange-dark));
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  position: relative;
+  overflow: hidden;
+}
+.announce-bar::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  animation: shimmer 2.5s infinite;
+}
+@keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+.announce-bar span { position: relative; }
+
+/* ============================
+   NAVBAR
+   ============================ */
+.navbar {
+  position: sticky; top: 0; z-index: 1000;
+  background: rgba(10,10,15,0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+  gap: 16px;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.25rem; font-weight: 800;
+  white-space: nowrap;
+  background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-gold) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex-shrink: 0;
+}
+.nav-logo span { color: var(--text-primary); -webkit-text-fill-color: var(--text-primary); }
+.nav-search {
+  flex: 1; max-width: 500px;
+  position: relative;
+}
+.nav-search input {
+  width: 100%; padding: 10px 44px 10px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+.nav-search input:focus {
+  border-color: var(--brand-orange);
+  box-shadow: 0 0 0 3px rgba(255,87,34,0.12);
+}
+.nav-search input::placeholder { color: var(--text-muted); }
+.search-icon {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--text-muted); pointer-events: none;
+  font-size: 1rem;
+}
+.nav-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.nav-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem; font-weight: 600;
+  transition: all var(--transition);
+  position: relative;
+}
+.nav-btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+.nav-btn-ghost:hover { border-color: var(--brand-orange); color: var(--brand-orange); }
+.wishlist-count {
+  position: absolute; top: -4px; right: -4px;
+  background: var(--brand-orange); color: white;
+  width: 18px; height: 18px; border-radius: 50%;
+  font-size: 0.65rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  display: none;
+}
+.wishlist-count.show { display: flex; }
+
+/* ============================
+   HERO SECTION
+   ============================ */
+.hero {
+  position: relative;
+  padding: 80px 24px 60px;
+  overflow: hidden;
+  text-align: center;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,87,34,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,179,0,0.08) 0%, transparent 60%),
+    var(--bg-dark);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  opacity: 0.4;
+}
+.hero-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px; border-radius: 50px;
+  background: rgba(255,87,34,0.12);
+  border: 1px solid rgba(255,87,34,0.25);
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--brand-orange);
+  margin-bottom: 24px;
+  animation: fadeInDown 0.6s ease both;
+}
+.hero-badge .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--brand-orange);
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 800; line-height: 1.1;
+  margin-bottom: 16px;
+  animation: fadeInUp 0.7s 0.1s ease both;
+}
+.hero h1 .highlight {
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 1.05rem; color: var(--text-secondary);
+  max-width: 520px; margin: 0 auto 32px;
+  line-height: 1.7;
+  animation: fadeInUp 0.7s 0.2s ease both;
+}
+.hero-stats {
+  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+  animation: fadeInUp 0.7s 0.3s ease both;
+}
+.stat-item { text-align: center; }
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 1.8rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; letter-spacing: 0.05em; }
+
+@keyframes fadeInDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:none; } }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+
+/* ============================
+   FILTER BAR
+   ============================ */
+.filter-bar {
+  background: var(--bg-section);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 14px 24px;
+  display: flex; gap: 12px; align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  position: sticky; top: 68px; z-index: 900;
+}
+.filter-bar::-webkit-scrollbar { display: none; }
+.filter-chip {
+  padding: 7px 18px;
+  border-radius: 50px;
+  font-size: 0.82rem; font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+.filter-chip:hover { border-color: var(--brand-orange); color: var(--brand-orange); }
+.filter-chip.active {
+  background: var(--brand-orange);
+  border-color: var(--brand-orange);
+  color: white;
+  box-shadow: 0 4px 16px rgba(255,87,34,0.35);
+}
+.filter-divider { width: 1px; height: 28px; background: var(--border-subtle); flex-shrink: 0; }
+.price-filter-wrap { display: flex; gap: 8px; flex-shrink: 0; }
+.price-btn {
+  padding: 7px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem; font-weight: 600;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+.price-btn:hover, .price-btn.active {
+  border-color: var(--accent-teal); color: var(--accent-teal);
+}
+.price-btn.active { background: rgba(0,188,212,0.1); }
+
+/* ============================
+   SECTION STYLES
+   ============================ */
+section { padding: 48px 24px; }
+.section-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 28px; gap: 16px;
+}
+.section-title-wrap {}
+.section-label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--brand-orange); text-transform: uppercase; margin-bottom: 6px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 800; line-height: 1.2;
+}
+.section-sub { font-size: 0.88rem; color: var(--text-muted); margin-top: 4px; }
+.see-all {
+  font-size: 0.83rem; font-weight: 600;
+  color: var(--brand-orange);
+  white-space: nowrap;
+  display: flex; align-items: center; gap: 4px;
+  transition: gap var(--transition);
+}
+.see-all:hover { gap: 8px; }
+
+/* ============================
+   HORIZONTAL SCROLL ROW (Hot Deals)
+   ============================ */
+.scroll-row {
+  display: flex; gap: 16px;
+  overflow-x: auto; padding-bottom: 8px;
+  scrollbar-width: thin; scrollbar-color: var(--brand-orange) transparent;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+.scroll-row::-webkit-scrollbar { height: 4px; }
+.scroll-row .product-card {
+  min-width: 220px; max-width: 220px;
+  scroll-snap-align: start;
+}
+
+/* ============================
+   PRODUCT GRID
+   ============================ */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* ============================
+   PRODUCT CARD
+   ============================ */
+.product-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+  border-color: var(--border-glow);
+}
+.card-image-wrap {
+  position: relative;
+  background: #1C1C28;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.card-image-wrap img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  padding: 12px;
+  transition: transform 0.4s ease;
+}
+.product-card:hover .card-image-wrap img { transform: scale(1.05); }
+.discount-badge {
+  position: absolute; top: 10px; left: 10px;
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-orange-dark));
+  color: white; padding: 4px 9px;
+  border-radius: 6px; font-size: 0.72rem; font-weight: 800;
+  box-shadow: 0 2px 8px rgba(255,87,34,0.5);
+  letter-spacing: 0.02em;
+}
+.wishlist-btn {
+  position: absolute; top: 10px; right: 10px;
+  width: 32px; height: 32px;
+  background: rgba(10,10,15,0.8);
+  border-radius: 50%; border: 1px solid var(--border-subtle);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  transition: all var(--transition);
+  backdrop-filter: blur(8px);
+}
+.wishlist-btn:hover, .wishlist-btn.active { background: var(--brand-orange); border-color: var(--brand-orange); }
+.urgency-tag {
+  position: absolute; bottom: 10px; left: 10px; right: 10px;
+  background: rgba(10,10,15,0.88);
+  backdrop-filter: blur(8px);
+  border-radius: 6px; padding: 5px 8px;
+  font-size: 0.7rem; font-weight: 600;
+  color: var(--brand-gold);
+  text-align: center;
+  border: 1px solid rgba(255,179,0,0.2);
+}
+.card-body { padding: 14px; display: flex; flex-direction: column; flex: 1; gap: 8px; }
+.card-category {
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--accent-teal);
+}
+.card-title {
+  font-size: 0.88rem; font-weight: 600; line-height: 1.4;
+  color: var(--text-primary);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+  cursor: pointer;
+}
+.card-title:hover { color: var(--brand-orange); }
+.card-rating { display: flex; align-items: center; gap: 6px; }
+.stars { color: var(--brand-gold); font-size: 0.78rem; letter-spacing: 0.05em; }
+.rating-val { font-size: 0.78rem; font-weight: 700; color: var(--brand-gold); }
+.review-count { font-size: 0.72rem; color: var(--text-muted); }
+.card-pricing { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.price-current {
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 800;
+  color: var(--text-primary);
+}
+.price-original {
+  font-size: 0.82rem; text-decoration: line-through;
+  color: var(--text-muted);
+}
+.price-saved {
+  font-size: 0.72rem; font-weight: 700;
+  color: var(--accent-green);
+  background: rgba(67,160,71,0.1);
+  padding: 2px 6px; border-radius: 4px;
+}
+/* Stock bar */
+.stock-wrap { margin-top: 2px; }
+.stock-label { font-size: 0.68rem; color: var(--text-muted); margin-bottom: 4px; display: flex; justify-content: space-between; }
+.stock-bar {
+  height: 4px; background: rgba(255,255,255,0.07);
+  border-radius: 2px; overflow: hidden;
+}
+.stock-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-orange), var(--brand-gold));
+  border-radius: 2px;
+  transition: width 1s ease;
+}
+/* CTA Button */
+.btn-buy {
+  margin-top: 4px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 11px 16px;
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-orange-dark));
+  color: white; font-weight: 700; font-size: 0.85rem;
+  border-radius: var(--radius-btn);
+  transition: all var(--transition);
+  box-shadow: 0 4px 16px rgba(255,87,34,0.3);
+  letter-spacing: 0.02em;
+}
+.btn-buy:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(255,87,34,0.5);
+  background: linear-gradient(135deg, var(--brand-orange-light), var(--brand-orange));
+}
+.btn-buy svg { flex-shrink: 0; }
+
+/* ============================
+   SKELETON LOADER
+   ============================ */
+.skeleton {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+.skeleton-img { aspect-ratio: 1/1; background: var(--bg-card-hover); }
+.skeleton-body { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.skeleton-line { height: 12px; border-radius: 4px; background: var(--bg-card-hover); }
+.skeleton-line.short { width: 60%; }
+.skeleton-line.medium { width: 80%; }
+@keyframes skeleton-pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+
+/* ============================
+   PRODUCT MODAL
+   ============================ */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  opacity: 0; visibility: hidden;
+  transition: all var(--transition);
+}
+.modal-overlay.show { opacity: 1; visibility: visible; }
+.modal-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  max-width: 560px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
+  transform: scale(0.92) translateY(20px);
+  transition: transform var(--transition);
+  position: relative;
+}
+.modal-overlay.show .modal-box { transform: scale(1) translateY(0); }
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  background: var(--bg-dark);
+  border-radius: 50%; border: 1px solid var(--border-subtle);
+  color: var(--text-secondary); font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition); z-index: 10;
+}
+.modal-close:hover { background: var(--brand-orange); color: white; border-color: var(--brand-orange); }
+.modal-img-wrap {
+  background: #1C1C28;
+  border-radius: 20px 20px 0 0; overflow: hidden;
+  aspect-ratio: 16/9;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-img-wrap img { max-height: 260px; object-fit: contain; padding: 20px; }
+.modal-body { padding: 24px; }
+.modal-category {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--accent-teal); margin-bottom: 8px;
+}
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem; font-weight: 800; line-height: 1.3;
+  margin-bottom: 12px;
+}
+.modal-rating { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.modal-pricing { margin-bottom: 20px; }
+.modal-price {
+  font-family: var(--font-display);
+  font-size: 2rem; font-weight: 800;
+  color: var(--text-primary);
+}
+.modal-mrp { font-size: 0.9rem; color: var(--text-muted); text-decoration: line-through; }
+.modal-savings { font-size: 0.85rem; color: var(--accent-green); font-weight: 600; }
+.modal-urgency {
+  background: rgba(255,87,34,0.08);
+  border: 1px solid rgba(255,87,34,0.2);
+  border-radius: 10px; padding: 10px 14px;
+  font-size: 0.82rem; color: var(--brand-orange-light);
+  font-weight: 600; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.modal-stock-wrap { margin-bottom: 20px; }
+.modal-btn-buy {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 15px;
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-orange-dark));
+  color: white; font-weight: 800; font-size: 1rem;
+  border-radius: 12px;
+  transition: all var(--transition);
+  box-shadow: 0 6px 24px rgba(255,87,34,0.4);
+  letter-spacing: 0.02em;
+}
+.modal-btn-buy:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,87,34,0.6); }
+
+/* ============================
+   TOAST NOTIFICATIONS
+   ============================ */
+.toast-container {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 3000; display: flex; flex-direction: column;
+  align-items: center; gap: 8px; pointer-events: none;
+}
+.toast {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 0.85rem; font-weight: 600;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  animation: toastIn 0.35s cubic-bezier(0.34,1.56,0.64,1) both;
+  backdrop-filter: blur(12px);
+}
+.toast.hiding { animation: toastOut 0.3s ease forwards; }
+.toast.success { border-color: rgba(67,160,71,0.4); color: var(--accent-green); }
+.toast.info { border-color: rgba(0,188,212,0.4); color: var(--accent-teal); }
+.toast.warning { border-color: rgba(255,179,0,0.4); color: var(--brand-gold); }
+@keyframes toastIn { from { opacity:0; transform:translateY(12px) scale(0.9); } to { opacity:1; transform:none; } }
+@keyframes toastOut { from { opacity:1; transform:none; } to { opacity:0; transform:translateY(12px) scale(0.9); } }
+
+/* ============================
+   BACK TO TOP
+   ============================ */
+#back-top {
+  position: fixed; bottom: 80px; right: 24px; z-index: 1500;
+  width: 44px; height: 44px;
+  background: var(--brand-orange);
+  border-radius: 50%; border: none;
+  color: white; font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(255,87,34,0.5);
+  opacity: 0; visibility: hidden;
+  transition: all var(--transition);
+  transform: translateY(10px);
+}
+#back-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+#back-top:hover { transform: translateY(-2px) scale(1.05); }
+
+/* ============================
+   EMPTY / ERROR STATES
+   ============================ */
+.empty-state {
+  text-align: center; padding: 48px 24px;
+  grid-column: 1 / -1;
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: 12px; opacity: 0.5; }
+.empty-state h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+.empty-state p { font-size: 0.88rem; color: var(--text-muted); }
+
+/* ============================
+   SECTION BACKGROUNDS
+   ============================ */
+.section-alt { background: var(--bg-section); }
+.section-deals { background: linear-gradient(180deg, var(--bg-dark) 0%, #0F0A08 100%); }
+.section-trending { background: var(--bg-section); }
+.section-viral { background: var(--bg-dark); }
+.section-all { background: var(--bg-section); }
+
+/* ============================
+   SOCIAL STRIP
+   ============================ */
+.social-strip {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 20px 24px;
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+  flex-wrap: wrap;
+}
+.social-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 700; font-size: 0.88rem;
+  transition: all var(--transition);
+  border: 1px solid var(--border-subtle);
+}
+.social-btn.insta {
+  color: #E1306C;
+  background: rgba(225,48,108,0.06);
+  border-color: rgba(225,48,108,0.2);
+}
+.social-btn.insta:hover { background: rgba(225,48,108,0.12); border-color: rgba(225,48,108,0.5); transform: translateY(-2px); }
+.social-btn.yt {
+  color: #FF0000;
+  background: rgba(255,0,0,0.06);
+  border-color: rgba(255,0,0,0.2);
+}
+.social-btn.yt:hover { background: rgba(255,0,0,0.12); border-color: rgba(255,0,0,0.5); transform: translateY(-2px); }
+
+/* ============================
+   FOOTER
+   ============================ */
+footer {
+  background: #070710;
+  border-top: 1px solid var(--border-subtle);
+  padding: 40px 24px 24px;
+}
+.footer-grid {
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 36px;
+}
+.footer-brand {}
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 10px;
+}
+.footer-tagline { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+.footer-col h4 { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; margin-bottom: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+.footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+.footer-col ul li a { font-size: 0.83rem; color: var(--text-muted); transition: color var(--transition); }
+.footer-col ul li a:hover { color: var(--brand-orange); }
+.footer-bottom {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 20px;
+  text-align: center;
+}
+.affiliate-disclaimer {
+  background: rgba(255,87,34,0.06);
+  border: 1px solid rgba(255,87,34,0.15);
+  border-radius: 10px; padding: 12px 16px;
+  font-size: 0.78rem; color: var(--text-muted); line-height: 1.6;
+  max-width: 700px; margin: 0 auto 16px;
+}
+.affiliate-disclaimer strong { color: var(--text-secondary); }
+.footer-copy { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ============================
+   FLOATING TICKER (viral tag)
+   ============================ */
+.viral-ticker {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 8px; border-radius: 4px;
+  background: rgba(255,0,80,0.12);
+  border: 1px solid rgba(255,0,80,0.25);
+  font-size: 0.67rem; font-weight: 700; color: #FF4060;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 768px) {
+  .hero { padding: 56px 16px 44px; }
+  .hero-stats { gap: 24px; }
+  .stat-value { font-size: 1.4rem; }
+  .products-grid { grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 14px; }
+  .scroll-row .product-card { min-width: 185px; max-width: 185px; }
+  section { padding: 36px 16px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .nav-logo { font-size: 1rem; }
+  .nav-actions .nav-btn span { display: none; }
+  .filter-bar { padding: 12px 16px; }
+}
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .card-body { padding: 10px; }
+  .card-title { font-size: 0.8rem; }
+  .price-current { font-size: 1rem; }
+  .btn-buy { padding: 9px 12px; font-size: 0.78rem; }
+  .hero h1 { font-size: 1.8rem; }
+}
+/* No products fallback */
+#load-more-wrap { text-align: center; margin-top: 28px; }
+.btn-load-more {
+  padding: 12px 32px;
+  background: transparent;
+  border: 2px solid var(--brand-orange);
+  border-radius: 50px;
+  color: var(--brand-orange);
+  font-weight: 700; font-size: 0.9rem;
+  transition: all var(--transition);
+}
+.btn-load-more:hover { background: var(--brand-orange); color: white; }
+/* refresh badge */
+.refresh-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.72rem; color: var(--text-muted);
+  padding: 4px 10px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 50px;
+}
+.refresh-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-green); animation: pulse-dot 2s infinite; }
+</style>
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="loader-logo">⚡ Smart Easy Life Wins</div>
+  <div class="loader-spinner"></div>
+  <div class="loader-text">Loading best deals…</div>
+</div>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+  <span>🔥 Limited Time Deals — Up to 80% OFF on Amazon! Shop now before stock runs out ⚡</span>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="#" class="nav-logo">Smart Easy<span> Life Wins</span></a>
+  <div class="nav-search">
+    <input type="search" id="search-input" placeholder="Search products, deals…" autocomplete="off"/>
+    <span class="search-icon">🔍</span>
+  </div>
+  <div class="nav-actions">
+    <button class="nav-btn nav-btn-ghost" id="wishlist-nav-btn" onclick="toggleWishlistView()">
+      ❤️ <span>Wishlist</span>
+      <span class="wishlist-count" id="wishlist-count">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Amazon's Best Deals – Updated Daily</div>
+    <h1>Shop <span class="highlight">Smarter,</span><br/>Save <span class="highlight">Bigger.</span></h1>
+    <p class="hero-sub">Handpicked trending products with massive discounts. Every deal verified on Amazon — earn back on every smart purchase.</p>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-value" id="stat-products">0+</div><div class="stat-label">PRODUCTS LISTED</div></div>
+      <div class="stat-item"><div class="stat-value">80%</div><div class="stat-label">MAX DISCOUNT</div></div>
+      <div class="stat-item"><div class="stat-value">24/7</div><div class="stat-label">DEAL UPDATES</div></div>
+      <div class="stat-item"><div class="stat-value">₹0</div><div class="stat-label">EXTRA FEES</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filter-bar">
+  <button class="filter-chip active" data-cat="all" onclick="filterCategory(this,'all')">🛍️ All</button>
+  <div class="filter-divider"></div>
+  <div class="price-filter-wrap">
+    <button class="price-btn" data-price="500" onclick="filterPrice(this,500)">Under ₹500</button>
+    <button class="price-btn" data-price="1000" onclick="filterPrice(this,1000)">Under ₹1000</button>
+  </div>
+  <!-- dynamic category chips appended here -->
+</div>
+
+<!-- HOT DEALS (horizontal scroll) -->
+<section class="section-deals" id="deals-section">
+  <div class="section-header">
+    <div class="section-title-wrap">
+      <div class="section-label">🔥 Flash Deals</div>
+      <h2 class="section-title">Hot Deals Today</h2>
+      <p class="section-sub">Highest discounts — grab before they're gone</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span class="refresh-badge"><span class="refresh-dot"></span> <span id="last-refresh">Live</span></span>
+    </div>
+  </div>
+  <div class="scroll-row" id="deals-row">
+    <!-- skeleton -->
+    <div class="skeleton" style="min-width:220px;max-width:220px;scroll-snap-align:start;"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton" style="min-width:220px;max-width:220px;scroll-snap-align:start;"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton" style="min-width:220px;max-width:220px;scroll-snap-align:start;"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton" style="min-width:220px;max-width:220px;scroll-snap-align:start;"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton" style="min-width:220px;max-width:220px;scroll-snap-align:start;"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+  </div>
+</section>
+
+<!-- TRENDING PRODUCTS -->
+<section class="section-trending" id="trending-section">
+  <div class="section-header">
+    <div class="section-title-wrap">
+      <div class="section-label">📈 Trending Now</div>
+      <h2 class="section-title">Top Trending Products</h2>
+      <p class="section-sub">Ranked by rating × reviews</p>
+    </div>
+  </div>
+  <div class="products-grid" id="trending-grid">
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+  </div>
+</section>
+
+<!-- VIRAL PRODUCTS -->
+<section class="section-viral" id="viral-section">
+  <div class="section-header">
+    <div class="section-title-wrap">
+      <div class="section-label">🚀 Viral Picks</div>
+      <h2 class="section-title">Most Reviewed Products</h2>
+      <p class="section-sub">Thousands of happy customers</p>
+    </div>
+  </div>
+  <div class="products-grid" id="viral-grid">
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+  </div>
+</section>
+
+<!-- SOCIAL STRIP -->
+<div class="social-strip">
+  <a href="https://instagram.com/smarteasylifewins" target="_blank" rel="noopener" class="social-btn insta">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    Follow on Instagram
+  </a>
+  <a href="https://www.youtube.com/@SmartEasyLifeWins" target="_blank" rel="noopener" class="social-btn yt">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    Subscribe on YouTube
+  </a>
+</div>
+
+<!-- ALL PRODUCTS -->
+<section class="section-all" id="all-section">
+  <div class="section-header">
+    <div class="section-title-wrap">
+      <div class="section-label">🛒 Full Collection</div>
+      <h2 class="section-title">All Products</h2>
+      <p class="section-sub">Complete catalogue — filter & search above</p>
+    </div>
+    <span id="product-count-label" style="font-size:0.82rem;color:var(--text-muted);"></span>
+  </div>
+  <div class="products-grid" id="all-grid">
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+    <div class="skeleton"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div></div>
+  </div>
+  <div id="load-more-wrap" style="display:none;">
+    <button class="btn-load-more" id="load-more-btn" onclick="loadMore()">Load More Products ↓</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">⚡ Smart Easy Life Wins</div>
+      <p class="footer-tagline">Your go-to source for the best Amazon deals, trending products, and exclusive offers. Updated daily.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#deals-section">🔥 Hot Deals</a></li>
+        <li><a href="#trending-section">📈 Trending</a></li>
+        <li><a href="#viral-section">🚀 Viral Picks</a></li>
+        <li><a href="#all-section">🛒 All Products</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="https://instagram.com/smarteasylifewins" target="_blank" rel="noopener">📸 Instagram</a></li>
+        <li><a href="https://www.youtube.com/@SmartEasyLifeWins" target="_blank" rel="noopener">▶️ YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="affiliate-disclaimer">
+      <strong>Affiliate Disclosure:</strong> As an Amazon Associate we earn from qualifying purchases. Product prices and availability are accurate as of the date/time indicated and are subject to change. Any price and availability information displayed on Amazon at the time of purchase will apply to the purchase of this product.
+    </div>
+    <p class="footer-copy">© 2024 Smart Easy Life Wins · All rights reserved · smarteasyli03-21</p>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toast-container"></div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-box" id="modal-box">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <div class="modal-img-wrap">
+      <img id="modal-img" src="" alt="" loading="lazy"/>
+    </div>
+    <div class="modal-body">
+      <div class="modal-category" id="modal-category"></div>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <div class="modal-rating" id="modal-rating"></div>
+      <div class="modal-pricing">
+        <div class="modal-price" id="modal-price"></div>
+        <div style="display:flex;gap:12px;align-items:center;margin-top:4px;">
+          <span class="modal-mrp" id="modal-mrp"></span>
+          <span class="modal-savings" id="modal-savings"></span>
+        </div>
+      </div>
+      <div class="modal-urgency" id="modal-urgency"></div>
+      <div class="modal-stock-wrap" id="modal-stock"></div>
+      <a id="modal-buy-btn" href="#" target="_blank" rel="nofollow sponsored noopener" class="modal-btn-buy" onclick="trackModalClick()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.9 18 9 18h12v-2H9.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0 0 23.46 5H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2z"/></svg>
+        Buy Now on Amazon
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =====================================================
+   CONFIGURATION
+   ===================================================== */
+const CONFIG = {
+  affiliateTag: 'smarteasyli03-21',
+  csvUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTx_Nptdt_u9SMdfjEiVaRGWsxyV7rBuWGv3Ge7STBY1Ywjp_GqO2bZ2-zT4qFuxzAW6HZtYscfq8RU/pub?gid=0&single=true&output=csv',
+  cacheKey: 'selw_products_v3',
+  cacheExpiry: 60 * 60 * 1000, // 1 hour
+  refreshInterval: 5 * 60 * 1000, // 5 min
+  fetchTimeout: 4000,
+  pageSize: 12,
+  urgencyTexts: [
+    '🔥 Only few left in stock!',
+    '⚡ 20+ bought today',
+    '🛒 High demand – hurry!',
+    '⏳ Deal ends soon!',
+    '🔥 Selling fast!'
+  ]
+};
+
+/* =====================================================
+   STATE
+   ===================================================== */
+let allProducts = [];
+let filteredProducts = [];
+let wishlist = JSON.parse(localStorage.getItem('selw_wishlist') || '[]');
+let currentCategory = 'all';
+let currentPriceFilter = null;
+let currentSearch = '';
+let displayedCount = 0;
+let modalProduct = null;
+let refreshTimer = null;
+
+/* =====================================================
+   AFFILIATE LINK BUILDER
+   ===================================================== */
+function buildLink(product) {
+  if (product.asin && product.asin.trim()) {
+    return `https://www.amazon.in/dp/${product.asin.trim()}?tag=${CONFIG.affiliateTag}&linkCode=ll1`;
+  }
+  const q = encodeURIComponent(product.title || '');
+  return `https://www.amazon.in/s?k=${q}&tag=${CONFIG.affiliateTag}`;
+}
+
+/* =====================================================
+   ANALYTICS
+   ===================================================== */
+function trackClick(productId, title) {
+  try {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'product_click', { product_id: productId, product_name: title, affiliation: 'Amazon' });
+    }
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'ViewContent', { content_name: title, content_ids: [productId] });
+    }
+    console.log(`[Analytics] Click: ${productId} — ${title}`);
+  } catch(e) {}
+}
+function trackModalClick() {
+  if (modalProduct) trackClick(modalProduct.id, modalProduct.title);
+}
+
+/* =====================================================
+   TOAST
+   ===================================================== */
+function showToast(msg, type = 'info', duration = 2800) {
+  const wrap = document.getElementById('toast-container');
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.innerHTML = msg;
+  wrap.appendChild(t);
+  setTimeout(() => {
+    t.classList.add('hiding');
+    setTimeout(() => t.remove(), 350);
+  }, duration);
+}
+
+/* =====================================================
+   STAR RENDERER
+   ===================================================== */
+function renderStars(rating) {
+  const r = parseFloat(rating) || 0;
+  const full = Math.floor(r);
+  const half = (r - full) >= 0.5 ? 1 : 0;
+  const empty = 5 - full - half;
+  return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+}
+
+/* =====================================================
+   CSV PARSER
+   ===================================================== */
+function parseCSV(text) {
+  const lines = text.trim().split('\n');
+  if (lines.length < 2) return [];
+  const headers = lines[0].split(',').map(h => h.replace(/^"|"$/g,'').trim().toLowerCase());
+
+  function mapCol(keys) {
+    for (const k of keys) {
+      const idx = headers.findIndex(h => h.includes(k));
+      if (idx !== -1) return idx;
+    }
+    return -1;
+  }
+
+  const cols = {
+    title: mapCol(['product name','name','title']),
+    price: mapCol(['sale price','price']),
+    originalPrice: mapCol(['mrp','original price','original']),
+    image: mapCol(['image url','image']),
+    reviews: mapCol(['reviews','review']),
+    rating: mapCol(['rating']),
+    asin: mapCol(['asin']),
+    category: mapCol(['category']),
+  };
+
+  const products = [];
+  for (let i = 1; i < lines.length; i++) {
+    const row = splitCSVRow(lines[i]);
+    if (!row || row.length < 2) continue;
+
+    const get = (idx) => idx >= 0 && idx < row.length ? row[idx].replace(/^"|"$/g,'').trim() : '';
+
+    const title = get(cols.title);
+    if (!title) continue;
+
+    let price = parseFloat(get(cols.price).replace(/[^0-9.]/g,'')) || 0;
+    let originalPrice = parseFloat(get(cols.originalPrice).replace(/[^0-9.]/g,'')) || 0;
+
+    // Auto-generate MRP if missing
+    if (!originalPrice && price) {
+      originalPrice = Math.round(price * (1 + (20 + Math.random() * 40) / 100));
+    }
+    if (!price && originalPrice) {
+      price = Math.round(originalPrice * (0.5 + Math.random() * 0.3));
+    }
+
+    const discount = originalPrice > 0 ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
+    const rating = parseFloat(get(cols.rating)) || (3.5 + Math.random() * 1.5);
+    const reviews = parseInt(get(cols.reviews).replace(/[^0-9]/g,'')) || Math.floor(50 + Math.random() * 2000);
+    const asin = get(cols.asin);
+    const category = get(cols.category) || 'General';
+    const image = get(cols.image) || `https://via.placeholder.com/300x300/1C1C28/FF5722?text=${encodeURIComponent(title.slice(0,12))}`;
+
+    products.push({
+      id: `p_${i}`,
+      title,
+      price,
+      originalPrice,
+      discount,
+      rating: Math.round(rating * 10) / 10,
+      reviews,
+      asin,
+      category,
+      image,
+      stockPct: Math.floor(20 + Math.random() * 70),
+      urgency: CONFIG.urgencyTexts[Math.floor(Math.random() * CONFIG.urgencyTexts.length)],
+      viral: reviews > 500
+    });
+  }
+  return products;
+}
+
+function splitCSVRow(row) {
+  const result = [];
+  let cur = ''; let inQ = false;
+  for (let i = 0; i < row.length; i++) {
+    const c = row[i];
+    if (c === '"') { inQ = !inQ; continue; }
+    if (c === ',' && !inQ) { result.push(cur); cur = ''; continue; }
+    cur += c;
+  }
+  result.push(cur);
+  return result;
+}
+
+/* =====================================================
+   FALLBACK PRODUCTS
+   ===================================================== */
+const FALLBACK_PRODUCTS = [
+  { id:'f1', title:'boAt Airdopes 141 TWS Earbuds with ENx Tech', price:999, originalPrice:4490, discount:78, rating:4.1, reviews:89432, asin:'B09ZDLMRD1', category:'Electronics', image:'https://m.media-amazon.com/images/I/51XJGGEJlWL._SX679_.jpg', stockPct:35, urgency:'🔥 Only few left in stock!', viral:true },
+  { id:'f2', title:'Prestige Iris 750 W Mixer Grinder 3 Jars', price:1499, originalPrice:3495, discount:57, rating:4.3, reviews:43210, asin:'B07G3JNPBN', category:'Kitchen', image:'https://m.media-amazon.com/images/I/61I6r4AEcFL._SX679_.jpg', stockPct:55, urgency:'⚡ 20+ bought today', viral:true },
+  { id:'f3', title:'Himalaya Herbals Purifying Neem Face Wash 200ml', price:99, originalPrice:199, discount:50, rating:4.4, reviews:12893, asin:'B00CM3PFRY', category:'Beauty', image:'https://m.media-amazon.com/images/I/71EuLFvLG8L._SX679_.jpg', stockPct:72, urgency:'⚡ 20+ bought today', viral:false },
+  { id:'f4', title:'Redmi Note 13 Pro 5G (Aurora Purple, 8GB RAM, 256GB)', price:23999, originalPrice:35999, discount:33, rating:4.3, reviews:8934, asin:'', category:'Mobiles', image:'https://m.media-amazon.com/images/I/71IxmVrBeML._SX679_.jpg', stockPct:28, urgency:'🛒 High demand – hurry!', viral:false },
+  { id:'f5', title:'Amazon Echo Dot (5th Gen) Smart Speaker with Alexa', price:4499, originalPrice:5499, discount:18, rating:4.6, reviews:24521, asin:'B09B8W5FW7', category:'Electronics', image:'https://m.media-amazon.com/images/I/71nt1klOlEL._SX679_.jpg', stockPct:60, urgency:'🔥 Only few left in stock!', viral:true },
+  { id:'f6', title:'Havells Instanio Prime 3-Litre Instant Geyser', price:2699, originalPrice:5999, discount:55, rating:4.2, reviews:5621, asin:'B0CKTQQJ1Y', category:'Home', image:'https://m.media-amazon.com/images/I/71KxfASPwUL._SX679_.jpg', stockPct:45, urgency:'⏳ Deal ends soon!', viral:false },
+  { id:'f7', title:'Fire-Boltt Phoenix Pro 1.39" AMOLED Smartwatch', price:1799, originalPrice:9999, discount:82, rating:4.0, reviews:32100, asin:'B0CJGLKDHF', category:'Wearables', image:'https://m.media-amazon.com/images/I/61JaKcgCjML._SX679_.jpg', stockPct:22, urgency:'🔥 Selling fast!', viral:true },
+  { id:'f8', title:'Milton Excel 900 Thermosteel Bottle 900ml', price:399, originalPrice:995, discount:60, rating:4.5, reviews:15678, asin:'B07GQ1JYW4', category:'Kitchen', image:'https://m.media-amazon.com/images/I/51JinFQ5nXL._SX679_.jpg', stockPct:68, urgency:'⚡ 20+ bought today', viral:false },
+  { id:'f9', title:'Lenovo IdeaPad Slim 3 Intel Core i3 12th Gen Laptop', price:34990, originalPrice:52990, discount:34, rating:4.3, reviews:4290, asin:'', category:'Computers', image:'https://m.media-amazon.com/images/I/71TF40lPLIL._SX679_.jpg', stockPct:18, urgency:'🛒 High demand – hurry!', viral:false },
+  { id:'f10', title:'Mamaearth Onion Hair Oil with Redensyl 250ml', price:249, originalPrice:499, discount:50, rating:4.2, reviews:28340, asin:'B08L5LK9BB', category:'Beauty', image:'https://m.media-amazon.com/images/I/71GrUSk2dKL._SX679_.jpg', stockPct:80, urgency:'⚡ 20+ bought today', viral:true },
+  { id:'f11', title:'Portronics Toad 31 Wireless Optical Mouse', price:299, originalPrice:899, discount:67, rating:4.1, reviews:9870, asin:'B08XYQRYWK', category:'Computers', image:'https://m.media-amazon.com/images/I/61i8zVEf5QL._SX679_.jpg', stockPct:50, urgency:'🔥 Selling fast!', viral:false },
+  { id:'f12', title:'Boldfit Yoga Mat Anti Skid 6mm Thickness', price:399, originalPrice:1499, discount:73, rating:4.3, reviews:7654, asin:'B09WV9BWDQ', category:'Sports', image:'https://m.media-amazon.com/images/I/81mKJKs0-nL._SX679_.jpg', stockPct:62, urgency:'⚡ 20+ bought today', viral:false },
+];
+
+/* =====================================================
+   FETCH WITH TIMEOUT
+   ===================================================== */
+function withTimeout(promise, ms) {
+  return new Promise((res, rej) => {
+    const t = setTimeout(() => rej(new Error('timeout')), ms);
+    promise.then(v => { clearTimeout(t); res(v); }).catch(e => { clearTimeout(t); rej(e); });
+  });
+}
+
+async function fetchCSV() {
+  const url = CONFIG.csvUrl;
+  const proxies = [
+    url,
+    `https://corsproxy.io/?${encodeURIComponent(url)}`,
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(url)}`
+  ];
+
+  const fetches = proxies.map(u =>
+    withTimeout(fetch(u).then(r => { if (!r.ok) throw new Error('bad'); return r.text(); }), CONFIG.fetchTimeout)
+  );
+
+  try {
+    const text = await Promise.any(fetches);
+    return text;
+  } catch(e) {
+    console.warn('[SELW] All fetch attempts failed, using fallback.');
+    return null;
+  }
+}
+
+/* =====================================================
+   CACHE
+   ===================================================== */
+function getCached() {
+  try {
+    const raw = localStorage.getItem(CONFIG.cacheKey);
+    if (!raw) return null;
+    const { data, ts } = JSON.parse(raw);
+    if (Date.now() - ts > CONFIG.cacheExpiry) return null;
+    return data;
+  } catch { return null; }
+}
+function setCache(data) {
+  try { localStorage.setItem(CONFIG.cacheKey, JSON.stringify({ data, ts: Date.now() })); } catch {}
+}
+
+/* =====================================================
+   PRODUCT LOADING
+   ===================================================== */
+async function loadProducts() {
+  // Instant load from cache
+  const cached = getCached();
+  if (cached && cached.length > 0) {
+    allProducts = cached;
+    renderAll();
+    showToast('📦 Loaded from cache — refreshing in background…', 'info', 2000);
+  }
+
+  // Fetch fresh
+  const csv = await fetchCSV();
+  if (csv) {
+    const parsed = parseCSV(csv);
+    if (parsed.length > 0) {
+      allProducts = parsed;
+      setCache(parsed);
+      renderAll();
+      const now = new Date();
+      document.getElementById('last-refresh').textContent = `Updated ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+      if (cached) showToast(`✅ Products updated — ${parsed.length} deals loaded!`, 'success');
+    } else if (!cached) {
+      allProducts = FALLBACK_PRODUCTS;
+      renderAll();
+      showToast('⚠️ Using demo products — check your Sheet URL', 'warning');
+    }
+  } else if (!cached) {
+    allProducts = FALLBACK_PRODUCTS;
+    renderAll();
+    showToast('📌 Showing sample products — connect your Google Sheet', 'warning');
+  }
+
+  // Update stat
+  document.getElementById('stat-products').textContent = allProducts.length + '+';
+
+  // Setup auto-refresh
+  if (refreshTimer) clearInterval(refreshTimer);
+  refreshTimer = setInterval(loadProducts, CONFIG.refreshInterval);
+}
+
+/* =====================================================
+   FILTER & SORT
+   ===================================================== */
+function applyFilters() {
+  filteredProducts = allProducts.filter(p => {
+    const matchCat = currentCategory === 'all' || p.category === currentCategory;
+    const matchPrice = !currentPriceFilter || p.price <= currentPriceFilter;
+    const matchSearch = !currentSearch || p.title.toLowerCase().includes(currentSearch.toLowerCase()) || p.category.toLowerCase().includes(currentSearch.toLowerCase());
+    return matchCat && matchPrice && matchSearch;
+  });
+
+  displayedCount = 0;
+  renderAll();
+  const label = document.getElementById('product-count-label');
+  if (label) label.textContent = `Showing ${filteredProducts.length} of ${allProducts.length} products`;
+}
+
+function filterCategory(btn, cat) {
+  document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentCategory = cat;
+  applyFilters();
+}
+
+function filterPrice(btn, max) {
+  if (btn.classList.contains('active')) {
+    btn.classList.remove('active');
+    currentPriceFilter = null;
+  } else {
+    document.querySelectorAll('.price-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentPriceFilter = max;
+  }
+  applyFilters();
+}
+
+/* =====================================================
+   RENDER SECTIONS
+   ===================================================== */
+function renderAll() {
+  const source = filteredProducts.length > 0 || currentSearch || currentCategory !== 'all' || currentPriceFilter
+    ? filteredProducts : allProducts;
+
+  // Deals: highest discount
+  const deals = [...source].sort((a,b) => b.discount - a.discount).slice(0, 10);
+  // Trending: rating * sqrt(reviews)
+  const trending = [...source].sort((a,b) => (b.rating * Math.sqrt(b.reviews)) - (a.rating * Math.sqrt(a.reviews))).slice(0, 8);
+  // Viral: highest reviews
+  const viral = [...source].sort((a,b) => b.reviews - a.reviews).slice(0, 8);
+
+  renderScrollRow('deals-row', deals);
+  renderGrid('trending-grid', trending);
+  renderGrid('viral-grid', viral);
+  renderAllGrid(source);
+  buildCategoryChips();
+}
+
+function renderScrollRow(id, products) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (!products.length) { el.innerHTML = emptyHTML('No deals found'); return; }
+  el.innerHTML = products.map(p => cardHTML(p, true)).join('');
+  animateCards(el);
+}
+
+function renderGrid(id, products) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (!products.length) { el.innerHTML = emptyHTML('No products found'); return; }
+  el.innerHTML = products.map(p => cardHTML(p, false)).join('');
+  animateCards(el);
+}
+
+function renderAllGrid(products) {
+  const el = document.getElementById('all-grid');
+  if (!el) return;
+  displayedCount = Math.min(CONFIG.pageSize, products.length);
+  const shown = products.slice(0, displayedCount);
+  el.innerHTML = shown.length ? shown.map(p => cardHTML(p, false)).join('') : emptyHTML('No products match your search');
+  animateCards(el);
+
+  const wrap = document.getElementById('load-more-wrap');
+  if (wrap) wrap.style.display = products.length > displayedCount ? 'block' : 'none';
+}
+
+function loadMore() {
+  const el = document.getElementById('all-grid');
+  if (!el) return;
+  const source = filteredProducts.length > 0 || currentSearch || currentCategory !== 'all' || currentPriceFilter ? filteredProducts : allProducts;
+  const next = source.slice(displayedCount, displayedCount + CONFIG.pageSize);
+  displayedCount += next.length;
+  next.forEach(p => {
+    const div = document.createElement('div');
+    div.innerHTML = cardHTML(p, false);
+    const card = div.firstElementChild;
+    card.style.opacity = '0'; card.style.transform = 'translateY(20px)';
+    el.appendChild(card);
+    requestAnimationFrame(() => {
+      card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      card.style.opacity = '1'; card.style.transform = 'none';
+    });
+  });
+  const wrap = document.getElementById('load-more-wrap');
+  if (wrap) wrap.style.display = source.length > displayedCount ? 'block' : 'none';
+}
+
+/* =====================================================
+   CARD HTML
+   ===================================================== */
+function cardHTML(p, scroll) {
+  const link = buildLink(p);
+  const saved = p.originalPrice - p.price;
+  const isWishlisted = wishlist.includes(p.id);
+  const stars = renderStars(p.rating);
+  const viralTag = p.viral ? `<div class="viral-ticker">🚀 Viral</div>` : '';
+
+  return `
+<div class="product-card${scroll ? ' scroll-card' : ''}" id="card-${p.id}">
+  <div class="card-image-wrap" onclick="openModal('${p.id}')">
+    <img src="${escHTML(p.image)}" alt="${escHTML(p.title)}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300/1C1C28/FF5722?text=Product'"/>
+    ${p.discount > 0 ? `<div class="discount-badge">-${p.discount}%</div>` : ''}
+    <button class="wishlist-btn${isWishlisted ? ' active' : ''}" onclick="toggleWishlist(event,'${p.id}')" title="Wishlist">${isWishlisted ? '❤️' : '🤍'}</button>
+    <div class="urgency-tag">${p.urgency}</div>
+  </div>
+  <div class="card-body">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:4px;">
+      <div class="card-category">${escHTML(p.category)}</div>
+      ${viralTag}
+    </div>
+    <div class="card-title" onclick="openModal('${p.id}')">${escHTML(p.title)}</div>
+    <div class="card-rating">
+      <span class="stars">${stars}</span>
+      <span class="rating-val">${p.rating}</span>
+      <span class="review-count">(${p.reviews.toLocaleString('en-IN')})</span>
+    </div>
+    <div class="card-pricing">
+      <span class="price-current">₹${p.price.toLocaleString('en-IN')}</span>
+      ${p.originalPrice > p.price ? `<span class="price-original">₹${p.originalPrice.toLocaleString('en-IN')}</span>` : ''}
+      ${saved > 0 ? `<span class="price-saved">Save ₹${saved.toLocaleString('en-IN')}</span>` : ''}
+    </div>
+    <div class="stock-wrap">
+      <div class="stock-label"><span>Stock remaining</span><span>${p.stockPct}%</span></div>
+      <div class="stock-bar"><div class="stock-fill" style="width:${p.stockPct}%"></div></div>
+    </div>
+    <a href="${link}" target="_blank" rel="nofollow sponsored noopener" class="btn-buy" onclick="trackClick('${p.id}','${escAttr(p.title)}')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.9 18 9 18h12v-2H9.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0 0 23.46 5H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2z"/></svg>
+      Buy Now on Amazon
+    </a>
+  </div>
+</div>`;
+}
+
+function escHTML(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function escAttr(s) { return String(s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;'); }
+
+function emptyHTML(msg) {
+  return `<div class="empty-state"><div class="icon">📭</div><h3>${msg}</h3><p>Try a different filter or search term.</p></div>`;
+}
+
+function animateCards(container) {
+  const cards = container.querySelectorAll('.product-card');
+  cards.forEach((c, i) => {
+    c.style.opacity = '0'; c.style.transform = 'translateY(16px)';
+    setTimeout(() => {
+      c.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+      c.style.opacity = '1'; c.style.transform = 'none';
+    }, i * 40);
+  });
+}
+
+/* =====================================================
+   CATEGORY CHIPS
+   ===================================================== */
+function buildCategoryChips() {
+  const bar = document.getElementById('filter-bar');
+  // Remove old dynamic chips
+  bar.querySelectorAll('.dynamic-chip').forEach(e => e.remove());
+
+  const cats = [...new Set(allProducts.map(p => p.category).filter(Boolean))].sort();
+  const divider = document.createElement('div');
+  divider.className = 'filter-divider dynamic-chip'; bar.appendChild(divider);
+
+  cats.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = `filter-chip dynamic-chip${currentCategory === cat ? ' active' : ''}`;
+    btn.textContent = cat;
+    btn.dataset.cat = cat;
+    btn.onclick = () => filterCategory(btn, cat);
+    bar.appendChild(btn);
+  });
+}
+
+/* =====================================================
+   WISHLIST
+   ===================================================== */
+function toggleWishlist(e, id) {
+  e.stopPropagation();
+  const idx = wishlist.indexOf(id);
+  const card = document.getElementById(`card-${id}`);
+  const btn = card?.querySelector('.wishlist-btn');
+  if (idx === -1) {
+    wishlist.push(id);
+    if (btn) { btn.textContent = '❤️'; btn.classList.add('active'); }
+    showToast('❤️ Added to Wishlist!', 'success');
+  } else {
+    wishlist.splice(idx, 1);
+    if (btn) { btn.textContent = '🤍'; btn.classList.remove('active'); }
+    showToast('💔 Removed from Wishlist', 'info');
+  }
+  localStorage.setItem('selw_wishlist', JSON.stringify(wishlist));
+  updateWishlistCount();
+}
+
+function updateWishlistCount() {
+  const cnt = document.getElementById('wishlist-count');
+  if (!cnt) return;
+  cnt.textContent = wishlist.length;
+  cnt.classList.toggle('show', wishlist.length > 0);
+}
+
+function toggleWishlistView() {
+  if (wishlist.length === 0) { showToast('💔 Your wishlist is empty', 'info'); return; }
+  const saved = allProducts.filter(p => wishlist.includes(p.id));
+  currentCategory = 'wishlist-view';
+  filteredProducts = saved;
+  displayedCount = 0;
+  renderAllGrid(saved);
+  document.getElementById('all-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  showToast(`❤️ Showing ${saved.length} wishlisted item(s)`, 'success');
+}
+
+/* =====================================================
+   MODAL
+   ===================================================== */
+function openModal(id) {
+  const p = allProducts.find(x => x.id === id);
+  if (!p) return;
+  modalProduct = p;
+  const link = buildLink(p);
+  const stars = renderStars(p.rating);
+  const saved = p.originalPrice - p.price;
+
+  document.getElementById('modal-img').src = p.image;
+  document.getElementById('modal-img').alt = p.title;
+  document.getElementById('modal-category').textContent = p.category;
+  document.getElementById('modal-title').textContent = p.title;
+  document.getElementById('modal-price').textContent = `₹${p.price.toLocaleString('en-IN')}`;
+  document.getElementById('modal-mrp').textContent = p.originalPrice > p.price ? `MRP ₹${p.originalPrice.toLocaleString('en-IN')}` : '';
+  document.getElementById('modal-savings').textContent = saved > 0 ? `You save ₹${saved.toLocaleString('en-IN')} (${p.discount}%)` : '';
+  document.getElementById('modal-urgency').innerHTML = `<span>⚡</span> ${p.urgency} — ${Math.floor(10 + Math.random() * 40)} people are viewing this right now`;
+  document.getElementById('modal-stock').innerHTML = `<div class="stock-label" style="display:flex;justify-content:space-between;font-size:0.72rem;color:var(--text-muted);margin-bottom:6px;"><span>Stock remaining</span><span>${p.stockPct}%</span></div><div class="stock-bar"><div class="stock-fill" style="width:${p.stockPct}%"></div></div>`;
+  document.getElementById('modal-rating').innerHTML = `<span class="stars" style="font-size:1rem;">${stars}</span><span class="rating-val">${p.rating}</span><span class="review-count">(${p.reviews.toLocaleString('en-IN')} reviews)</span>`;
+  document.getElementById('modal-buy-btn').href = link;
+  document.getElementById('modal-overlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+
+  trackClick(p.id, p.title);
+}
+function closeModalDirect() {
+  document.getElementById('modal-overlay').classList.remove('show');
+  document.body.style.overflow = '';
+  modalProduct = null;
+}
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
+
+/* =====================================================
+   SEARCH
+   ===================================================== */
+document.getElementById('search-input').addEventListener('input', function() {
+  currentSearch = this.value.trim();
+  applyFilters();
+  if (currentSearch) {
+    document.getElementById('all-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+});
+
+/* =====================================================
+   BACK TO TOP
+   ===================================================== */
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('back-top');
+  if (btn) btn.classList.toggle('show', window.scrollY > 400);
+});
+
+/* =====================================================
+   INIT
+   ===================================================== */
+window.addEventListener('DOMContentLoaded', async () => {
+  updateWishlistCount();
+
+  // Hide loader after load
+  await loadProducts();
+  setTimeout(() => document.getElementById('page-loader').classList.add('hidden'), 300);
+});
+</script>
+</body>
+</html>
